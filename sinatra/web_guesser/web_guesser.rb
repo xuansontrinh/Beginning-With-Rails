@@ -19,18 +19,20 @@ def check_guess guess
   return message, flag
 end
 get '/' do
-  guess = (params['guess']).to_i
-  message, flag = check_guess(guess)
-  if (flag == false && @@n_guesses == 0)
-    @@n_guesses = 5
-    message += " Out of turn, the game now resets the new number!"
-    SECRET_NUMBER = rand(100)
-  elsif flag == true
-    @@n_guesses = 5
-    message += " New number will be set!"
-    SECRET_NUMBER = rand(100)
-  else
-    @@n_guesses -= 1
+  if !params['guess'].nil? && params['guess'] != '' || params['cheat'] != 'on'
+    guess = (params['guess']).to_i
+    message, flag = check_guess(guess)
+    if (flag == false && @@n_guesses == 0)
+      @@n_guesses = 5
+      message += " Out of turn, the game now resets the new number!"
+      SECRET_NUMBER = rand(100)
+    elsif flag == true
+      @@n_guesses = 5
+      message += " New number will be set!"
+      SECRET_NUMBER = rand(100)
+    else
+      @@n_guesses -= 1
+    end
   end
   erb :index, :locals => {:numby => SECRET_NUMBER, :message => message, :guess => guess, :cheat => params['cheat']}
 end
