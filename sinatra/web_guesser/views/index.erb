@@ -1,0 +1,12 @@
+<form>
+  <input type='text' name='guess' />
+  <input type='submit' value='Guess!' />
+</form>
+<h1>
+  Message: <%= message %>
+</h1>
+<% if guess != numby %>
+  <h1>
+    The real secret number: <%= numby %>
+  </h1>
+<%- end -%>
