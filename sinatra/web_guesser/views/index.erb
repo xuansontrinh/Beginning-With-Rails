@@ -1,12 +1,13 @@
 <form>
   <input type='text' name='guess' />
+  <input type="checkbox" name="cheat"> Cheat
   <input type='submit' value='Guess!' />
 </form>
 <h1>
   Message: <%= message %>
 </h1>
-<% if guess != numby %>
+<% if cheat == 'on' %>
   <h1>
     The real secret number: <%= numby %>
   </h1>
-<%- end -%>
+<% end %>
