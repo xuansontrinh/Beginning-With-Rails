@@ -47,7 +47,9 @@ get '/login' do
 end
 
 post '/login' do
-  if params[:username] == settings.username && params[:password] == settings.password session[:admin] = true redirect to('/songs')
+  if params[:username] == settings.username && params[:password] == settings.password 
+    session[:admin] = true 
+    redirect to('/songs')
   else
     slim :login
   end
