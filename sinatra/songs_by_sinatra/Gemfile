@@ -1,4 +1,5 @@
-source :rubygems
+source :rubygemsa
+gem "byebug"
 gem "sinatra"
 gem "slim"
 gem "sass"
