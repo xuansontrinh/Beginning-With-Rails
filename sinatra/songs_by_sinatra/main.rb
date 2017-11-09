@@ -8,8 +8,9 @@ require './song'
 get('/styles.css'){ scss :styles }
 
 configure do
-enable :sessions
-set :username, 'frank' set :password, 'sinatra'
+  enable :sessions
+  set :username, 'frank' 
+  set :password, 'sinatra'
 end
 
 get '/set/:name' do
